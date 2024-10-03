@@ -5,7 +5,7 @@ import numpy as np
 x, y = sp.symbols('x y')
 
 #number of polynomials
-n = m = 40
+n = m = 10
 
 #Geometrical properties
 a, b = 8, 8
