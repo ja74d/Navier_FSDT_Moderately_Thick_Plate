@@ -5,17 +5,17 @@ import numpy as np
 x, y = sp.symbols('x y')
 
 #number of polynomials
-n = m = 20
+n = m = 10
 
 #Geometrical properties
-a, b = 8, 8
+a, b = 16, 16
 h = 1
 
 #mechanical properties
 E = 1
 nu = 0.3
 G = E/(2*(1+nu))
-k = (5/6)**0.5
+ka = (5/6)
 D = (E*h**3)/(12*(1-nu**2))
 
 #P0
@@ -27,7 +27,7 @@ def P(m, n):
 
 #Wmn
 def W(m, n):
-    return ( 1 + ( ((D*(math.pi**2))/(k**2 * G * h))*( (m/a)**2 + (n/b)**2 ) ) ) * ( ( P(m, n) )/( (D*(math.pi**4))*( ( (m/a)**2 + (n/b)**2 )**2 ) ) )
+    return ( 1 + ((D*math.pi**2)/(ka*G*h))*( (m/a)**2 + (n/b)**2 ) ) * ( ( P(m, n) )/( ( D*math.pi**4 )*( ( (m/a)**2 + (n/b)**2 )**2 ) ) )*math.sin((m*math.pi*8)/a)*math.sin((n*math.pi*8)/b)
 
 Wmn = 0
 for i in range(1, m+1):
